@@ -1,0 +1,122 @@
+/* ============================================================
+   Blood Donation — page layout
+   (Navbar / Footer come from the app shell)
+   ============================================================ */
+
+.blood-donation-page {
+  --bd-brand: #d94f5c;
+  --bd-brand-deep: #b3273a;
+  --bd-brand-tint: #fdeaec;
+  --bd-ink: #140d0e;
+  --bd-muted: #6b5c5e;
+  --bd-line: #f0e4e6;
+  --bd-paper: #fdf6f7;
+
+  width: 100%;
+  max-width: 1280px;
+  gap:40px;
+  margin: 0 auto;
+  padding-top: 14px;
+  padding-bottom: 40px;
+  color: var(--bd-ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  
+}
+
+.blood-donation-page *,
+.blood-donation-page *::before,
+.blood-donation-page *::after { box-sizing: border-box; }
+
+/* ---------- Sections ---------- */
+.bd-section {
+  margin-bottom: 40px;
+}
+.bd-section--hero { margin-bottom: 24px; }
+.bd-section:last-of-type { margin-bottom: 0; }
+
+/* ---------- Section header ---------- */
+.bd-section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.bd-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bd-brand-tint);
+  color: var(--bd-brand-deep);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.bd-title {
+  margin: 0 0 8px;
+  font-family: "Sora", "DM Sans", sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.bd-subtitle {
+  margin: 0;
+  max-width: 56ch;
+  color: var(--bd-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.bd-count {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--bd-line);
+  background: #fff;
+  color: var(--bd-muted);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- Shared grid ---------- */
+.bd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .blood-donation-page { padding: 20px; }
+  .bd-section { margin-bottom: 32px; }
+}
+
+@media (max-width: 640px) {
+  .blood-donation-page { padding: 16px; }
+  .bd-grid { grid-template-columns: 1fr; }
+  .bd-section__head { gap: 12px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .blood-donation-page *,
+  .blood-donation-page *::before,
+  .blood-donation-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

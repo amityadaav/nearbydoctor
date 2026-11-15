@@ -1,0 +1,94 @@
+/* =========================================
+   HOME PAGE
+   All selectors scoped to .home-page
+========================================= */
+
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #ffffff;
+  margin-top: 14px;
+}
+
+.home-page section {
+  width: 100%;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.home-page .home-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================
+   SECTION SPACING
+========================================= */
+
+.home-page .home-section {
+  padding: 80px 0;
+}
+
+/* =========================================
+   SECTION HEADER (scoped)
+========================================= */
+
+.home-page .home-section-header {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.home-page .home-section-title {
+  margin: 0 0 14px;
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+.home-page .home-section-subtitle {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+/* =========================================
+   BUTTON BASE
+========================================= */
+
+.home-page button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 992px) {
+  .home-page .home-container { padding: 0 20px; }
+  .home-page .home-section { padding: 70px 0; }
+  .home-page .home-section-title { font-size: 32px; }
+}
+
+@media (max-width: 768px) {
+  .home-page .home-section { padding: 60px 0; }
+  .home-page .home-section-header { margin-bottom: 40px; }
+  .home-page .home-section-title { font-size: 28px; }
+  .home-page .home-section-subtitle { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .home-page .home-container { padding: 0 16px; }
+  .home-page .home-section { padding: 50px 0; }
+  .home-page .home-section-title { font-size: 25px; }
+  .home-page .home-section-subtitle { font-size: 14px; }
+}

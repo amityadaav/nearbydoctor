@@ -1,0 +1,316 @@
+/* ============================================================
+   Blood Group Card — matches BloodHero / BloodSearch /
+   BloodStats / DonorCard design tokens
+   ============================================================ */
+
+.bgc-card {
+  --bgc-brand: #d94f5c;
+  --bgc-brand-deep: #b3273a;
+  --bgc-brand-tint: #fdeaec;
+  --bgc-ink: #140d0e;
+  --bgc-muted: #6b5c5e;
+  --bgc-line: #f0e4e6;
+  --bgc-paper: #fdf6f7;
+  --bgc-success: #15803d;
+  --bgc-success-tint: #dcfce7;
+  --bgc-warn: #b45309;
+  --bgc-warn-tint: #fef3c7;
+  --bgc-danger: #b91c1c;
+  --bgc-danger-tint: #fee2e2;
+  --bgc-plum: #7c3aed;
+  --bgc-plum-tint: #ede9fe;
+  --bgc-radius: 18px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--bgc-line);
+  border-radius: var(--bgc-radius);
+  background: #fff;
+  color: var(--bgc-ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  isolation: isolate;
+}
+
+.bgc-card *,
+.bgc-card *::before,
+.bgc-card *::after { box-sizing: border-box; }
+
+.bgc-card:hover {
+  border-color: var(--bgc-brand);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -18px rgba(179, 39, 58, 0.35);
+}
+
+.bgc-card--clickable { cursor: pointer; outline: none; }
+.bgc-card--clickable:focus-visible {
+  outline: 3px solid rgba(217, 79, 92, 0.25);
+  outline-offset: 3px;
+}
+
+/* ---------- Compact variant ---------- */
+.bgc-card--compact {
+  padding: 14px;
+  gap: 10px;
+  border-radius: 14px;
+}
+.bgc-card--compact .bgc-card__title h3 { font-size: 13.5px; }
+.bgc-card--compact .bgc-card__meter { padding: 10px 12px; }
+.bgc-card--compact .bgc-cta { height: 34px; font-size: 12px; }
+
+/* ---------- Head ---------- */
+.bgc-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.bgc-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: "Sora", "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.bgc-group.bgs-a  { background: #fee2e2; border-color: #fecaca; color: #b91c1c; }
+.bgc-group.bgs-b  { background: #dbeafe; border-color: #bfdbfe; color: #1d4ed8; }
+.bgc-group.bgs-ab { background: var(--bgc-plum-tint); border-color: #ddd6fe; color: var(--bgc-plum); }
+.bgc-group.bgs-o  { background: #ccfbf1; border-color: #99f6e4; color: #0f766e; }
+
+.bgc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--bgc-line);
+  background: var(--bgc-paper);
+  color: var(--bgc-muted);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.bgc-card--healthy  .bgc-status { border-color: #bbf7d0; background: var(--bgc-success-tint); color: var(--bgc-success); }
+.bgc-card--stable   .bgc-status { border-color: #99f6e4; background: #ccfbf1; color: #0f766e; }
+.bgc-card--low      .bgc-status { border-color: #fde68a; background: var(--bgc-warn-tint); color: var(--bgc-warn); }
+.bgc-card--critical .bgc-status { border-color: #fecaca; background: var(--bgc-danger-tint); color: var(--bgc-danger); }
+
+/* ---------- Title ---------- */
+.bgc-card__title h3 {
+  margin: 0 0 3px;
+  color: var(--bgc-ink);
+  font-family: "Sora", "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.bgc-card__title small {
+  display: block;
+  color: var(--bgc-muted);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+/* ---------- Meter ---------- */
+.bgc-card__meter {
+  padding: 12px 14px;
+  border: 1px solid var(--bgc-line);
+  border-radius: 12px;
+  background: var(--bgc-paper);
+}
+
+.bgc-meter__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.bgc-meter__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--bgc-muted);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+.bgc-meter__label svg { opacity: 0.7; }
+.bgc-meter__pct {
+  color: var(--bgc-ink);
+  font-family: "Sora", "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.bgc-bar {
+  height: 7px;
+  border-radius: 999px;
+  background: #f0e4e6;
+  overflow: hidden;
+}
+.bgc-bar__fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f472a2, var(--bgc-brand-deep));
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bgc-card--critical .bgc-bar__fill { background: linear-gradient(90deg, #f87171, #b91c1c); }
+.bgc-card--low      .bgc-bar__fill { background: linear-gradient(90deg, #fbbf24, #b45309); }
+.bgc-card--stable   .bgc-bar__fill { background: linear-gradient(90deg, #5eead4, #0f766e); }
+.bgc-card--healthy  .bgc-bar__fill { background: linear-gradient(90deg, #f472a2, var(--bgc-brand-deep)); }
+
+.bgc-meter__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--bgc-muted);
+  font-size: 11px;
+}
+.bgc-meter__meta > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bgc-trend {
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.bgc-trend.is-up   { color: var(--bgc-success); background: var(--bgc-success-tint); border-color: #bbf7d0; }
+.bgc-trend.is-down { color: var(--bgc-danger);  background: var(--bgc-danger-tint);  border-color: #fecaca; }
+
+/* ---------- Compatibility ---------- */
+.bgc-compat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--bgc-line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.bgc-compat__row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bgc-compat__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--bgc-muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.bgc-compat__label svg { color: var(--bgc-brand-deep); opacity: 0.8; }
+
+.bgc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bgc-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-family: "Sora", "DM Sans", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.bgc-chip.bgs-a  { background: #fee2e2; border-color: #fecaca; color: #b91c1c; }
+.bgc-chip.bgs-b  { background: #dbeafe; border-color: #bfdbfe; color: #1d4ed8; }
+.bgc-chip.bgs-ab { background: var(--bgc-plum-tint); border-color: #ddd6fe; color: var(--bgc-plum); }
+.bgc-chip.bgs-o  { background: #ccfbf1; border-color: #99f6e4; color: #0f766e; }
+
+.bgc-chip--more {
+  background: var(--bgc-paper);
+  border-color: var(--bgc-line);
+  color: var(--bgc-muted);
+}
+
+/* ---------- Footer CTA ---------- */
+.bgc-card__footer {
+  margin-top: auto;
+  padding-top: 2px;
+}
+
+.bgc-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: var(--bgc-brand-deep);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.bgc-cta:hover {
+  background: #8f1e2d;
+  transform: translateY(-1px);
+}
+.bgc-cta:focus-visible {
+  outline: 3px solid rgba(217, 79, 92, 0.3);
+  outline-offset: 2px;
+}
+.bgc-cta svg:first-child { opacity: 0.9; }
+.bgc-cta svg:last-child { transition: transform 0.15s ease; }
+.bgc-cta:hover svg:last-child { transform: translateX(3px); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .bgc-card { padding: 16px; }
+  .bgc-card__meter { padding: 10px 12px; }
+  .bgc-compat { padding: 10px 12px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .bgc-card,
+  .bgc-card *,
+  .bgc-card *::before,
+  .bgc-card *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ✅ Add this rule — compact card currently keeps full compat padding */
+.bgc-card--compact .bgc-compat { padding: 10px 12px; }
+.bgc-card--compact .bgc-card__meter { padding: 10px 12px; }
+.bgc-card--compact .bgc-cta         { height: 34px; font-size: 12px; }
+.bgc-card--compact .bgc-compat      { padding: 10px 12px; }   /* ✅ new */

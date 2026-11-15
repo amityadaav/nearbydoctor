@@ -1,0 +1,167 @@
+/* ============================================================
+   ROOT CSS — MINIMAL FIX
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+/* -------------------- */
+/* CSS VARIABLES (LIGHT) */
+/* -------------------- */
+:root {
+  --background: hsl(210 33% 98%);
+  --foreground: hsl(210 40% 11%);
+
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(210 40% 11%);
+
+  --primary-foreground: hsl(0 0% 100%);
+  --primary: #0f766e;
+
+  --secondary: hsl(168 45% 45%);
+  --secondary-foreground: hsl(0 0% 100%);
+
+  --muted: hsl(210 25% 93%);
+  --muted-foreground: hsl(210 15% 45%);
+
+  --accent: hsl(205 78% 95%);
+  --accent-foreground: hsl(205 78% 30%);
+
+  --destructive: hsl(0 84% 60%);
+  --border: hsl(210 20% 90%);
+  --input: hsl(210 20% 90%);
+  --ring: hsl(205 78% 45%);              /* ✅ ADDED — was missing in light mode */
+
+  --radius: 12px;
+
+  --hero-gradient: linear-gradient(
+    135deg,
+    hsl(205 78% 45%),
+    hsl(168 45% 45%)
+  );
+
+  --card-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.08);
+  --card-shadow-hover: 0 8px 32px -4px rgba(15, 23, 42, 0.14);
+}
+
+/* -------------------- */
+/* DARK MODE */
+/* -------------------- */
+.dark {
+  --background: hsl(210 40% 6%);
+  --foreground: hsl(210 20% 95%);
+
+  --card: hsl(210 40% 10%);
+  --card-foreground: hsl(210 20% 95%);
+
+  --primary: hsl(205 78% 55%);
+  --secondary: hsl(168 45% 50%);
+
+  --muted: hsl(210 30% 15%);
+  --muted-foreground: hsl(210 15% 60%);
+
+  --accent: hsl(205 60% 15%);
+  --accent-foreground: hsl(205 78% 70%);
+
+  --border: hsl(210 30% 18%);
+  --input: hsl(210 30% 18%);
+  --ring: hsl(205 78% 55%);
+}
+
+/* -------------------- */
+/* GLOBAL RESET */
+/* -------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html,
+body {
+  width: 100%;                /* ✅ FIX: was 100dvw → caused horizontal scroll */
+  max-width: 100%;            /* ✅ added safety net */
+  min-height: 100dvh;         /* ✅ FIX: was height → cut off long content */
+  margin: 0;
+  overflow-x: hidden;         /* ✅ added — kills any remaining horizontal slide */
+}
+
+/* -------------------- */
+/* BODY */
+/* -------------------- */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* -------------------- */
+/* TYPOGRAPHY */
+/* -------------------- */
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+p {
+  color: var(--muted-foreground);
+}
+
+/* -------------------- */
+/* COMMON ELEMENTS */
+/* -------------------- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  background: var(--card);
+  color: var(--foreground);
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {                        /* ✅ FIX: added textarea */
+  outline: none;
+  border-color: var(--ring);
+}
+
+/* -------------------- */
+/* FOCUS (keyboard users) */
+/* -------------------- */
+:focus-visible {                        /* ✅ added — a11y */
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* -------------------- */
+/* UTILITY CLASSES */
+/* -------------------- */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.site-container {                       /* ✅ renamed from .container to avoid collision */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

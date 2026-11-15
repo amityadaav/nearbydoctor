@@ -1,0 +1,345 @@
+/* DonateBlood.css */
+
+/* ===== Fonts ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* ===== Variables ===== */
+:root {
+  --blood-red: #ff3347;
+  --blood-dark: #8b0000;
+  --blood-light: #ff6b6b;
+  --text-dark: #ffffff;
+  --text-muted: #ffe0e0;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Banner ===== */
+.db-banner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 4rem 5% 0;
+  max-width: 1280px;
+  min-height: 420px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #450000 0%, #800000 50%, #b3001b 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(230, 57, 70, 0.15);
+  animation: dbBannerIn 0.8s ease-out both;
+}
+
+.db-banner::before,
+.db-banner::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.db-banner::before {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--blood-light), transparent 70%);
+  top: -100px;
+  left: -100px;
+  animation: dbGlowDrift 12s ease-in-out infinite;
+}
+
+.db-banner::after {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #ffb3b3, transparent 70%);
+  bottom: -120px;
+  right: -120px;
+  animation: dbGlowDrift 14s ease-in-out infinite reverse;
+}
+
+/* ===== Content ===== */
+.db-content {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 500px;
+  max-width: 600px;
+  padding-bottom: 4rem;
+}
+
+/* ===== Title ===== */
+.db-title {
+  margin: 0 0 1.5rem;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.db-top {
+  color: #ffffff;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  animation: dbFadeUp 0.8s 0.05s ease-out both;
+}
+
+.db-main {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(120deg, #ffffff 0%, #ffb3b3 50%, #ff4d5e 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: -1px;
+  animation:
+    dbFadeUp 0.8s 0.2s ease-out both,
+    dbGradientShift 6s ease-in-out infinite;
+}
+
+/* ===== Day row ===== */
+.db-day-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  animation: dbFadeUp 0.8s 0.35s ease-out both;
+}
+
+.db-day-row i {
+  flex: 1;
+  max-width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+  border-radius: 2px;
+  transform-origin: center;
+  animation: dbLineGrow 1s 0.45s ease-out both;
+}
+
+.db-day {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 600;
+  color: #ffd6d6;
+  font-style: italic;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  animation: dbFadeUp 0.8s 0.5s ease-out both;
+}
+
+/* ===== Paragraph ===== */
+.db-text {
+  margin: 0 0 2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ffe5e5;
+  max-width: 520px;
+  animation: dbFadeUp 0.8s 0.55s ease-out both;
+}
+
+/* ===== Button ===== */
+.db-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--white);
+  background: linear-gradient(135deg, #ff3347 0%, #a00016 100%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation:
+    dbFadeUp 0.8s 0.7s ease-out both,
+    dbBtnPulse 2.8s 1.5s ease-in-out infinite;
+}
+
+.db-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: dbShimmer 3.5s 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.db-btn:hover {
+  background: linear-gradient(135deg, #ff5264 0%, #d00020 100%);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+  animation-play-state: paused;
+}
+
+.db-btn:active {
+  transform: translateY(-1px);
+}
+
+.db-btn:focus-visible {
+  outline: 3px solid var(--blood-dark);
+  outline-offset: 3px;
+}
+
+/* ===== Art / Image ===== */
+.db-art {
+  position: relative;
+  z-index: 1;
+  flex: 0 1 480px;
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.db-art-img {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.22));
+}
+
+/* ===== Keyframes ===== */
+@keyframes dbBannerIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dbFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dbGradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes dbLineGrow {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes dbGlowDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(30px, 20px); }
+}
+
+@keyframes dbBtnPulse {
+  0%, 100% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+  50%      { box-shadow: 0 14px 32px rgba(255, 51, 71, 0.55); }
+}
+
+@keyframes dbShimmer {
+  0%   { left: -60%; }
+  40%  { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .db-banner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.5rem 0;
+    gap: 1.5rem;
+    min-height: auto;
+  }
+
+  .db-content {
+    flex: 0 0 auto;
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
+  .db-title,
+  .db-day-row {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .db-text {
+    margin-inline: auto;
+  }
+
+  .db-art {
+    align-self: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto -1rem;
+  }
+
+  .db-art-img {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .db-banner {
+    padding: 2rem 1rem 0;
+    border-radius: 16px;
+    margin: 1rem;
+  }
+
+  .db-btn {
+    width: 100%;
+  }
+
+  .db-day-row i {
+    max-width: 30px;
+  }
+
+  .db-art {
+    max-width: 260px;
+  }
+
+  .db-art-img {
+    max-height: 220px;
+  }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  .db-banner,
+  .db-top,
+  .db-main,
+  .db-day-row,
+  .db-day-row i,
+  .db-day,
+  .db-text,
+  .db-btn,
+  .db-btn::after,
+  .db-banner::before,
+  .db-banner::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

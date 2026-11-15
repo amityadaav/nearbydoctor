@@ -1,0 +1,15 @@
+
+/* Space for fixed navbar */
+.main-content {
+  padding-top: 72px;
+  min-height: calc(100vh - 72px);
+  box-sizing: border-box;
+}
+
+/* Mobile navbar height */
+@media (max-width: 900px) {
+  .main-content {
+    padding-top: 68px;
+    min-height: calc(100vh - 68px);
+  }
+}

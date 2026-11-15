@@ -1,0 +1,385 @@
+/* ========================================
+   FILTER SIDEBAR
+======================================== */
+
+.filter-sidebar {
+  width: 100%;
+  max-width: 320px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.05);
+
+  position: sticky;
+  top: 24px;
+
+  height: fit-content;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.filter-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.filter-header h2 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.filter-header p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+
+  color: #6b7280;
+}
+
+
+/* ========================================
+   CLEAR BUTTON
+======================================== */
+
+.clear-filter {
+  border: none;
+  background: transparent;
+
+  padding: 4px 0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #0284c7;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.clear-filter:hover {
+  color: #0369a1;
+}
+
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.filter-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 18px 0;
+
+  background: #eef0f2;
+}
+
+
+/* ========================================
+   FILTER ITEM
+======================================== */
+
+.filter-item {
+  margin-bottom: 18px;
+}
+
+
+/* ========================================
+   FEE FILTER
+======================================== */
+
+.fee-filter {
+  margin-top: 4px;
+}
+
+.fee-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  gap: 12px;
+}
+
+.fee-header label {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.fee-value {
+  padding: 4px 8px;
+
+  background: #f0f9ff;
+
+  border-radius: 6px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #0284c7;
+}
+
+
+/* ========================================
+   RANGE INPUT
+======================================== */
+
+.fee-range {
+  width: 100%;
+
+  padding: 0 !important;
+
+  border: none !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+
+  cursor: pointer;
+}
+
+
+/* Chrome / Edge / Safari */
+
+.fee-range::-webkit-slider-runnable-track {
+  height: 5px;
+
+  background: #e0f2fe;
+
+  border-radius: 10px;
+}
+
+.fee-range::-webkit-slider-thumb {
+  width: 17px;
+  height: 17px;
+
+  margin-top: -6px;
+
+  appearance: none;
+
+  background: #0284c7;
+
+  border: 3px solid #ffffff;
+
+  border-radius: 50%;
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+}
+
+
+/* Firefox */
+
+.fee-range::-moz-range-track {
+  height: 5px;
+
+  background: #e0f2fe;
+
+  border-radius: 10px;
+}
+
+.fee-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+
+  background: #0284c7;
+
+  border: 3px solid #ffffff;
+
+  border-radius: 50%;
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   RANGE LABELS
+======================================== */
+
+.fee-range-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 6px;
+
+  font-size: 11px;
+
+  color: #9ca3af;
+}
+
+
+/* ========================================
+   AVAILABILITY
+======================================== */
+
+.availability-filter {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 6px;
+  margin-bottom: 20px;
+
+  cursor: pointer;
+}
+
+
+/* Hide native checkbox */
+
+.availability-filter input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* Custom checkbox */
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #d1d5db;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Check */
+
+.checkbox-check {
+  display: none;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+
+/* Checked state */
+
+.availability-filter input:checked
+  + .custom-checkbox {
+  background: #0284c7;
+
+  border-color: #0284c7;
+}
+
+.availability-filter input:checked
+  + .custom-checkbox
+  .checkbox-check {
+  display: block;
+}
+
+
+/* ========================================
+   AVAILABILITY TEXT
+======================================== */
+
+.availability-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.availability-text strong {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.availability-text small {
+  font-size: 11px;
+
+  color: #9ca3af;
+}
+
+
+/* ========================================
+   ACTION
+======================================== */
+
+.filter-actions {
+  padding-top: 4px;
+}
+
+.filter-actions button {
+  width: 100%;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1024px) {
+  .filter-sidebar {
+    max-width: 280px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .filter-sidebar {
+    max-width: none;
+
+    position: static;
+
+    padding: 18px;
+
+    border-radius: 14px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .filter-sidebar {
+    padding: 16px;
+  }
+
+  .filter-header h2 {
+    font-size: 18px;
+  }
+}

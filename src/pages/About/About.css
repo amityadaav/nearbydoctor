@@ -1,0 +1,566 @@
+/* =========================================
+   ABOUT PAGE
+   ========================================= */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap");
+
+.about-page {
+  width: 100%;
+  background: #ffffff;
+  color: var(--foreground, #0f172a);
+  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Shared container */
+.about-page .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   HERO  →  soft mint gradient
+   ========================================= */
+.about-page .about-hero {
+  padding: 80px 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(15, 118, 110, 0.08), transparent 55%),
+    linear-gradient(135deg, #f0fdfa 0%, #e6f7f4 60%, #f8fbff 100%);
+  border-bottom: 1px solid #e0f0ed;
+}
+
+.about-page .about-hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+  min-height: 520px;
+}
+
+.about-page .about-hero-content {
+  max-width: 650px;
+}
+
+.about-page .about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--primary, #0f766e);
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.06);
+}
+
+.about-page .about-hero h1 {
+  margin: 22px 0 20px;
+  font-size: clamp(36px, 5vw, 55px);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  color: #0f172a;
+}
+
+.about-page .about-hero h1 span {
+  color: var(--primary, #0f766e);
+}
+
+.about-page .about-hero-content > p {
+  max-width: 600px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #475569;
+}
+
+.about-page .about-hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.about-page .about-primary-btn,
+.about-page .about-secondary-btn {
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-page .about-primary-btn {
+  background: var(--primary, #0f766e);
+  color: #ffffff;
+  border: 1px solid var(--primary, #0f766e);
+}
+.about-page .about-primary-btn:hover {
+  background: #115e59;
+  border-color: #115e59;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -10px rgba(15, 118, 110, 0.6);
+}
+
+.about-page .about-secondary-btn {
+  background: #ffffff;
+  color: var(--primary, #0f766e);
+  border: 1px solid #d1e7e3;
+}
+.about-page .about-secondary-btn:hover {
+  background: #ffffff;
+  border-color: var(--primary, #0f766e);
+  box-shadow: 0 4px 12px -4px rgba(15, 118, 110, 0.2);
+}
+
+/* ---- Hero card ---- */
+.about-page .about-hero-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px;
+  border: 1px solid #e0f0ed;
+  box-shadow: 0 24px 50px -24px rgba(15, 118, 110, 0.2);
+}
+
+.about-page .hero-card-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ccfbf1, #a7f3d0);
+  color: var(--primary, #0f766e);
+}
+
+.about-page .about-hero-card h3 {
+  margin: 22px 0 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.about-page .about-hero-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.about-page .hero-search {
+  height: 50px;
+  margin-top: 22px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.about-page .hero-location {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 15px;
+  color: var(--primary, #0f766e);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================
+   ABOUT SECTION  →  white
+   ========================================= */
+.about-page .about-section {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.about-page .about-section-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 100px;
+}
+
+.about-page .about-section-heading span,
+.about-page .why-heading span,
+.about-page .how-heading span,
+.about-page .about-cta span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--primary, #0f766e);
+}
+
+.about-page .about-section-heading h2,
+.about-page .why-heading h2,
+.about-page .how-heading h2 {
+  margin: 12px 0 0;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.2;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.about-page .about-section-content p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #475569;
+}
+.about-page .about-section-content p:last-child { margin-bottom: 0; }
+
+/* =========================================
+   MISSION  →  light mint band
+   ========================================= */
+.about-page .mission-section {
+  padding: 90px 0;
+  background: #f0fdfa;
+  border-top: 1px solid #e0f0ed;
+  border-bottom: 1px solid #e0f0ed;
+}
+
+.about-page .mission-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.about-page .mission-card {
+  padding: 35px;
+  background: #ffffff;
+  border: 1px solid #d1e7e3;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px -16px rgba(15, 118, 110, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.about-page .mission-card:hover {
+  transform: translateY(-4px);
+  border-color: #a7d8d0;
+  box-shadow: 0 16px 34px -18px rgba(15, 118, 110, 0.22);
+}
+
+.about-page .mission-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ccfbf1, #a7f3d0);
+  color: var(--primary, #0f766e);
+  margin-bottom: 22px;
+}
+
+.about-page .mission-card > span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--primary, #0f766e);
+}
+
+.about-page .mission-card h3 {
+  margin: 10px 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0f172a;
+}
+
+.about-page .mission-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #475569;
+}
+
+/* =========================================
+   WHY  →  soft gray band
+   ========================================= */
+.about-page .why-section {
+  background: #f8fafc;
+  padding: 90px 0;
+}
+
+.about-page .why-heading {
+  max-width: 620px;
+}
+
+.about-page .why-heading p {
+  max-width: 500px;
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.about-page .why-grid {
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-page .why-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.about-page .why-card:hover {
+  transform: translateY(-4px);
+  border-color: hsl(168 45% 78%);
+  box-shadow: 0 16px 30px -14px rgba(15, 23, 42, 0.12);
+}
+
+.about-page .why-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ccfbf1, #a7f3d0);
+  color: var(--primary, #0f766e);
+  margin-bottom: 20px;
+}
+
+.about-page .why-card h3 {
+  margin: 0 0 10px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.about-page .why-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+/* =========================================
+   HOW  →  white
+   ========================================= */
+.about-page .how-section {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.about-page .steps-grid {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.about-page .step-card {
+  position: relative;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #f8fafc;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.about-page .step-card:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: hsl(168 45% 78%);
+  box-shadow: 0 16px 30px -14px rgba(15, 23, 42, 0.1);
+}
+
+.about-page .step-number {
+  position: absolute;
+  top: 22px;
+  right: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary, #0f766e);
+  opacity: 0.7;
+}
+
+.about-page .step-card > svg {
+  color: var(--primary, #0f766e);
+  margin-bottom: 18px;
+}
+
+.about-page .step-card h3 {
+  margin: 0 0 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.about-page .step-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+/* =========================================
+   CTA  →  teal band with mint wash
+   ========================================= */
+.about-page .about-cta-wrap {
+  padding: 60px 0 80px;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f0fdfa 100%);
+}
+
+.about-page .about-cta {
+  padding: 55px 60px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.15), transparent 50%),
+    linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  box-shadow: 0 24px 50px -24px rgba(15, 118, 110, 0.5);
+}
+
+.about-page .about-cta span {
+  color: #ccfbf1;
+  opacity: 1;
+}
+
+.about-page .about-cta h2 {
+  margin: 10px 0;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.2;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.about-page .about-cta p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.about-page .about-cta-btn {
+  flex-shrink: 0;
+  height: 48px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--primary, #0f766e);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.about-page .about-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1000px) {
+  .about-page .about-hero-inner { gap: 40px; min-height: auto; padding: 60px 0; }
+  .about-page .about-section-inner { gap: 50px; }
+  .about-page .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .about-page .about-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 60px 0;
+  }
+  .about-page .about-section-inner { grid-template-columns: 1fr; gap: 30px; }
+  .about-page .mission-inner { grid-template-columns: 1fr; }
+  .about-page .steps-grid { grid-template-columns: 1fr; }
+  .about-page .about-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page .container { padding: 0 20px; }
+
+  .about-page .about-hero { padding: 40px 0; }
+  .about-page .about-hero h1 { font-size: 36px; letter-spacing: -1px; }
+  .about-page .about-hero-content > p { font-size: 15px; }
+
+  .about-page .about-hero-actions { flex-direction: column; }
+  .about-page .about-primary-btn,
+  .about-page .about-secondary-btn { justify-content: center; width: 100%; }
+
+  .about-page .about-hero-card { padding: 26px; }
+
+  .about-page .about-section,
+  .about-page .why-section,
+  .about-page .how-section,
+  .about-page .mission-section { padding: 60px 0; }
+
+  .about-page .about-section-heading h2,
+  .about-page .why-heading h2,
+  .about-page .how-heading h2 { font-size: 28px; }
+
+  .about-page .mission-card { padding: 28px; }
+  .about-page .why-grid { grid-template-columns: 1fr; }
+
+  .about-page .about-cta-wrap { padding: 40px 0 60px; }
+  .about-page .about-cta { padding: 30px 24px; }
+  .about-page .about-cta h2 { font-size: 24px; }
+  .about-page .about-cta-btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 400px) {
+  .about-page .container { padding: 0 16px; }
+  .about-page .about-hero h1 { font-size: 30px; }
+  .about-page .about-hero-card,
+  .about-page .mission-card,
+  .about-page .why-card,
+  .about-page .step-card { padding: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page *,
+  .about-page *::before,
+  .about-page *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .about-page .about-primary-btn:hover,
+  .about-page .about-secondary-btn:hover,
+  .about-page .about-cta-btn:hover,
+  .about-page .why-card:hover,
+  .about-page .step-card:hover,
+  .about-page .mission-card:hover {
+    transform: none;
+  }
+}

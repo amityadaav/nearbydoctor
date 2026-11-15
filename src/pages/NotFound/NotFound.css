@@ -1,0 +1,353 @@
+/* src/pages/NotFound.css */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+.nf-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background:
+    radial-gradient(circle at 20% 20%, #ecfdf5 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, #f0fdfa 0%, transparent 45%),
+    #f8fafc;
+  font-family: "DM Sans", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* Ambient glows */
+.nf-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.55;
+}
+.nf-glow--1 {
+  width: 380px;
+  height: 380px;
+  background: #99f6e4;
+  top: -120px;
+  left: -120px;
+}
+.nf-glow--2 {
+  width: 420px;
+  height: 420px;
+  background: #ccfbf1;
+  bottom: -160px;
+  right: -140px;
+}
+
+/* ============================================================
+   CARD
+   ============================================================ */
+.nf-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  padding: 44px 40px 36px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 20px 50px -20px rgba(15, 118, 110, 0.2);
+  text-align: center;
+  animation: nf-rise 0.5s ease both;
+}
+
+@keyframes nf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   BRAND
+   ============================================================ */
+.nf-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f766e;
+  letter-spacing: 0.2px;
+}
+
+.nf-brand-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  border-radius: 8px;
+  color: #0f766e;
+}
+
+/* ============================================================
+   ILLUSTRATION — pulse rings + big 404
+   ============================================================ */
+.nf-illustration {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nf-pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #14b8a6;
+  opacity: 0;
+  animation: nf-pulse 2.6s ease-out infinite;
+}
+.nf-pulse-ring--2 {
+  animation-delay: 1.3s;
+}
+
+@keyframes nf-pulse {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.nf-pulse-core {
+  position: relative;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+  color: #ffffff;
+  box-shadow:
+    0 10px 30px -8px rgba(15, 118, 110, 0.55),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+.nf-code {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 4px;
+  background: #ffffff;
+  padding: 0 12px;
+  line-height: 1;
+}
+
+/* ============================================================
+   TEXT
+   ============================================================ */
+.nf-title {
+  margin: 24px 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.4px;
+}
+
+.nf-subtitle {
+  margin: 0 auto 26px;
+  max-width: 400px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #64748b;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.nf-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.nf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nf-btn--primary {
+  background: #0f766e;
+  color: #ffffff;
+  box-shadow: 0 8px 20px -8px rgba(15, 118, 110, 0.6);
+}
+.nf-btn--primary:hover {
+  background: #0d5f59;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -8px rgba(15, 118, 110, 0.65);
+}
+
+.nf-btn--ghost {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #e2e8f0;
+}
+.nf-btn--ghost:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.nf-btn:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================
+   SUGGESTIONS
+   ============================================================ */
+.nf-suggestions {
+  padding-top: 22px;
+  border-top: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.nf-suggestions__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #94a3b8;
+}
+
+.nf-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nf-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #0f766e;
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.nf-links a:hover {
+  background: #ccfbf1;
+  border-color: #99f6e4;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.nf-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.nf-footer a {
+  color: #0f766e;
+  font-weight: 600;
+  text-decoration: none;
+}
+.nf-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 480px) {
+  .nf-page {
+    padding: 40px 16px;
+  }
+  .nf-card {
+    padding: 32px 22px 26px;
+    border-radius: 20px;
+  }
+  .nf-illustration {
+    width: 150px;
+    height: 150px;
+  }
+  .nf-pulse-core {
+    width: 84px;
+    height: 84px;
+  }
+  .nf-pulse-core svg {
+    width: 36px;
+    height: 36px;
+  }
+  .nf-code {
+    font-size: 24px;
+  }
+  .nf-actions {
+    flex-direction: column;
+  }
+  .nf-btn {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .nf-page *,
+  .nf-page *::before,
+  .nf-page *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

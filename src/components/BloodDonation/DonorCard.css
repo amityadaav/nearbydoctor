@@ -1,0 +1,328 @@
+/* ============================================================
+   Donor Card — matches BloodHero / BloodSearch / BloodStats
+   ============================================================ */
+
+.dc-card {
+  --dc-brand: #d94f5c;
+  --dc-brand-deep: #b3273a;
+  --dc-brand-tint: #fdeaec;
+  --dc-ink: #140d0e;
+  --dc-muted: #6b5c5e;
+  --dc-line: #f0e4e6;
+  --dc-paper: #fdf6f7;
+  --dc-success: #15803d;
+  --dc-success-tint: #dcfce7;
+  --dc-plum: #7c3aed;
+  --dc-plum-tint: #ede9fe;
+  --dc-radius: 18px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--dc-line);
+  border-radius: var(--dc-radius);
+  background: #fff;
+  color: var(--dc-ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  isolation: isolate;
+}
+
+.dc-card *,
+.dc-card *::before,
+.dc-card *::after { box-sizing: border-box; }
+
+.dc-card:hover {
+  border-color: var(--dc-brand);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -18px rgba(179, 39, 58, 0.35);
+}
+
+.dc-card--clickable {
+  cursor: pointer;
+  outline: none;
+}
+.dc-card--clickable:focus-visible {
+  outline: 3px solid rgba(217, 79, 92, 0.25);
+  outline-offset: 3px;
+}
+
+/* ---------- Variants ---------- */
+.dc-card--elevated {
+  box-shadow: 0 12px 28px -18px rgba(20, 13, 14, 0.28);
+}
+.dc-card--elevated:hover {
+  box-shadow: 0 22px 44px -22px rgba(179, 39, 58, 0.4);
+}
+
+.dc-card--compact {
+  padding: 14px;
+  gap: 10px;
+  border-radius: 14px;
+}
+.dc-card--compact .dc-avatar { width: 36px; height: 36px; font-size: 12px; }
+.dc-card--compact .dc-card__name { font-size: 13.5px; }
+.dc-card--compact .dc-card__actions { padding-top: 10px; }
+.dc-card--compact .dc-btn { height: 34px; font-size: 12px; }
+
+/* ---------- Head row ---------- */
+.dc-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.dc-badge.bgs-a  { background: #fee2e2; border-color: #fecaca; color: #b91c1c; }
+.dc-badge.bgs-b  { background: #dbeafe; border-color: #bfdbfe; color: #1d4ed8; }
+.dc-badge.bgs-ab { background: var(--dc-plum-tint); border-color: #ddd6fe; color: var(--dc-plum); }
+.dc-badge.bgs-o  { background: #ccfbf1; border-color: #99f6e4; color: #0f766e; }
+
+.dc-avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.dc-avail.is-yes { color: var(--dc-success); }
+.dc-avail.is-no  { color: var(--dc-muted); }
+
+/* ---------- Body ---------- */
+.dc-card__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dc-avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dc-brand-tint), #fbd0d5);
+  border: 1px solid #f7c2c8;
+  color: var(--dc-brand-deep);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.dc-avatar__verified {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #bbf7d0;
+  color: var(--dc-success);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.dc-card__identity { min-width: 0; flex: 1; }
+
+.dc-card__name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 4px;
+  color: var(--dc-ink);
+  font-family: "Sora", "DM Sans", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.dc-verified-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid #bbf7d0;
+  background: var(--dc-success-tint);
+  color: var(--dc-success);
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.dc-card__location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 3px;
+  color: var(--dc-muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.dc-card__location svg { flex-shrink: 0; opacity: 0.7; }
+
+.dc-card__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--dc-muted);
+  font-size: 11.5px;
+  opacity: 0.85;
+}
+.dc-card__meta svg { opacity: 0.7; }
+
+/* ---------- Badges row ---------- */
+.dc-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dc-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--dc-line);
+  background: var(--dc-paper);
+  color: var(--dc-muted);
+  font-size: 11.5px;
+}
+.dc-stat svg { color: var(--dc-brand-deep); opacity: 0.9; }
+.dc-stat strong { color: var(--dc-ink); font-weight: 700; }
+.dc-stat span { color: var(--dc-muted); }
+
+/* ---------- Actions ---------- */
+.dc-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--dc-line);
+}
+
+.dc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-width: 0;
+  white-space: nowrap;
+}
+.dc-btn--primary {
+  background: var(--dc-brand-deep);
+  color: #fff;
+}
+.dc-btn--primary:hover:not(.is-disabled) {
+  background: #8f1e2d;
+  transform: translateY(-1px);
+}
+.dc-btn--ghost {
+  border-color: var(--dc-line);
+  background: #fff;
+  color: var(--dc-ink);
+}
+.dc-btn--ghost:hover:not(.is-disabled) {
+  border-color: var(--dc-ink);
+}
+.dc-btn.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.dc-btn:focus-visible {
+  outline: 3px solid rgba(217, 79, 92, 0.25);
+  outline-offset: 2px;
+}
+
+.dc-arrow {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--dc-paper);
+  border: 1px solid var(--dc-line);
+  color: var(--dc-brand-deep);
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+.dc-card:hover .dc-arrow {
+  background: var(--dc-brand-tint);
+  border-color: #f7c2c8;
+  transform: translate(1px, -1px);
+}
+
+/* ---------- Unavailable notice ---------- */
+.dc-card__notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px dashed #f7c2c8;
+  background: var(--dc-brand-tint);
+  color: var(--dc-brand-deep);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .dc-card { padding: 16px; }
+  .dc-btn { font-size: 12.5px; height: 36px; padding: 0 10px; }
+  .dc-arrow { display: none; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .dc-card,
+  .dc-card *,
+  .dc-card *::before,
+  .dc-card *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
